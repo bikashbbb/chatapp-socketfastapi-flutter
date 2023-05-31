@@ -1,8 +1,22 @@
 Chat App
 
-Chat App is a real-time chat application built with WebSocket technology. It consists of a FastAPI-based backend server for handling WebSocket connections and a Flutter frontend for the user interface.
+Chat App is a real-time chat application built with WebSocket technology. It consists of a FastAPI-based backend server for handling WebSocket connections and a Flutter frontend for the user interface.Its a simple basic application but, scalable 
 
-![Chat App Demo](demo/demo.gif)
+![Chat App Demo]![Screenshot_1685512354](https://github.com/bikashbbb/chatapp-socketfastapi-flutter/assets/63708892/5dc80054-9af6-455e-b305-f533468eff79)
+
+
+## Screenshots
+
+![Login Screen]![![Uploading Screenshot_1685512354.png…]()
+Screenshot_1685512295](https://github.com/bikashbbb/chatapp-socketfastapi-flutter/assets/63708892/eea6d3b8-751e-498f-b18e-1fce6d2bb4a5)
+login.png)
+
+
+![Chat Screen]
+![Screenshot_1685512327](https://github.com/bikashbbb/chatapp-socketfastapi-flutter/assets/63708892/6495bdb4-5b97-4ac3-91b9-fb826e752f96)
+
+![Screenshot_1685512334](https://github.com/bikashbbb/chatapp-socketfastapi-flutter/assets/63708892/1b43924d-bad4-4406-aed4-4e28e14571d7)
+
 
 ## Features
 
@@ -10,12 +24,7 @@ Chat App is a real-time chat application built with WebSocket technology. It con
 - User authentication
 - WebSocket communication
 - Responsive user interface
-
-## Screenshots
-
-![Login Screen](demo/login.png)
-![Chat Screen](demo/chat.png)
-
+- 
 ## Technologies Used
 
 ### Backend
@@ -48,7 +57,7 @@ To get a local copy of the project up and running, follow these steps:
   ```bash
   uvicorn main:app --reload
   ```
-
+make sure to make a user account from the db or update the code . this is just a simple application
 ### Frontend Setup
 
 - Navigate to the `frontend` folder.
