@@ -2,20 +2,18 @@ Chat App
 
 Chat App is a real-time chat application built with WebSocket technology. It consists of a FastAPI-based backend server for handling WebSocket connections and a Flutter frontend for the user interface.Its a simple basic application but, scalable 
 
-![Chat App Demo]![Screenshot_1685512354](https://github.com/bikashbbb/chatapp-socketfastapi-flutter/assets/63708892/5dc80054-9af6-455e-b305-f533468eff79)
+![Chat App Demo]
+<img src="https://github.com/bikashbbb/chatapp-socketfastapi-flutter/assets/63708892/5dc80054-9af6-455e-b305-f533468eff79" alt="Login Screen" width="400" height="auto">
 
 
 ## Screenshots
 
-![Login Screen]![![Uploading Screenshot_1685512354.png…]()
-Screenshot_1685512295](https://github.com/bikashbbb/chatapp-socketfastapi-flutter/assets/63708892/eea6d3b8-751e-498f-b18e-1fce6d2bb4a5)
-login.png)
+<img src="https://github.com/bikashbbb/chatapp-socketfastapi-flutter/assets/63708892/eea6d3b8-751e-498f-b18e-1fce6d2bb4a5" alt="Login Screen" width="400" height="auto">
 
+<img src="https://github.com/bikashbbb/chatapp-socketfastapi-flutter/assets/63708892/6495bdb4-5b97-4ac3-91b9-fb826e752f96" alt="Chat Screen" width="400" height="auto">
 
-![Chat Screen]
-![Screenshot_1685512327](https://github.com/bikashbbb/chatapp-socketfastapi-flutter/assets/63708892/6495bdb4-5b97-4ac3-91b9-fb826e752f96)
+<img src="https://github.com/bikashbbb/chatapp-socketfastapi-flutter/assets/63708892/1b43924d-bad4-4406-aed4-4e28e14571d7" alt="Screenshot_1685512334" width="400" height="auto">
 
-![Screenshot_1685512334](https://github.com/bikashbbb/chatapp-socketfastapi-flutter/assets/63708892/1b43924d-bad4-4406-aed4-4e28e14571d7)
 
 
 ## Features
