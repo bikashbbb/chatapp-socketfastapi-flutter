@@ -3,8 +3,6 @@
 
 # api points we need ?
 # login wala chaiyo api point first 
-# i am back om the fucking track i am gonnna be so skillfull backend ma !
-# first big project idea afnai project nepali freelancing app..
 from db import engine,Base
 from sqlalchemy.orm import Session
 import psycopg2
