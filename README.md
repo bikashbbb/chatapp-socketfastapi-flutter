@@ -1,4 +1,4 @@
-git push -f origin master# Chat App
+Chat App
 
 Chat App is a real-time chat application built with WebSocket technology. It consists of a FastAPI-based backend server for handling WebSocket connections and a Flutter frontend for the user interface.
 
