@@ -31,7 +31,9 @@ class MyApp extends StatelessWidget {
       if (response.statusCode == 200) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const ChatRoomPage()),
+          MaterialPageRoute(builder: (context) =>  ChatRoomPage(
+            emailController.text
+          )),
         );
       } else {
         // Failed login
@@ -160,7 +162,7 @@ class MyApp extends StatelessWidget {
 }
 
 void main() {
-  runApp(const MaterialApp(
-    home: ChatRoomPage(),
+  runApp( MaterialApp(
+    home: MyApp(),
   ));
 }

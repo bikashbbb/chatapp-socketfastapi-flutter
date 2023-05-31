@@ -36,8 +36,9 @@ class StreamSocket {
 }
 
 class ChatRoomPage extends StatefulWidget {
-  const ChatRoomPage({super.key});
-  static const uid = "alex";
+  final String uid;
+
+  const ChatRoomPage(this.uid, {super.key});
   @override
   _ChatRoomPageState createState() => _ChatRoomPageState();
 }
@@ -80,8 +81,10 @@ class _ChatRoomPageState extends State<ChatRoomPage>
             child: TabBarView(
               controller: _tabController,
               children: [
-                LiveChatSection(),
-                const HistorySection(),
+                LiveChatSection(widget.uid),
+                 HistorySection(
+                  widget.uid
+                ),
               ],
             ),
           ),
@@ -92,9 +95,10 @@ class _ChatRoomPageState extends State<ChatRoomPage>
 }
 
 class LiveChatSection extends StatefulWidget {
-  
+  final String uid;
 
-  LiveChatSection({
+  LiveChatSection(
+    this.uid, {
     super.key,
   });
 
@@ -103,19 +107,20 @@ class LiveChatSection extends StatefulWidget {
 }
 
 class _LiveChatSectionState extends State<LiveChatSection> {
-  final StreamSocket _streamSocket = StreamSocket(IOWebSocketChannel.connect(
-      'ws://10.0.2.2:8000/ws?uid=${ChatRoomPage.uid}'));
+  late StreamSocket _streamSocket;
 
   @override
   void initState() {
     super.initState();
+    _streamSocket = StreamSocket(
+        IOWebSocketChannel.connect('ws://10.0.2.2:8000/ws?uid=${widget.uid}'));
     _streamSocket._listenToLiveChat();
   }
 
   @override
   void dispose() {
     super.dispose();
-  //_streamSocket.dispose();
+    //_streamSocket.dispose();
   }
 
   TextEditingController messageController = TextEditingController();
@@ -138,7 +143,9 @@ class _LiveChatSectionState extends State<LiveChatSection> {
                   itemCount: initialdata.length,
                   itemBuilder: (context, i) {
                     return Tile(
-                        response: decodeWebSocketResponse(initialdata[i]));
+                      response: decodeWebSocketResponse(initialdata[i]),
+                      uid: widget.uid,
+                    );
                   },
                 );
               } else if (snapshot.hasError) {
@@ -202,14 +209,21 @@ class _LiveChatSectionState extends State<LiveChatSection> {
 class Tile extends StatelessWidget {
   final Response response;
   bool splitTime;
-  Tile({super.key, required this.response, this.splitTime = true});
+  String uid;
+
+  Tile(
+      {super.key,
+      required this.response,
+      this.splitTime = true,
+      required this.uid});
 
   @override
   Widget build(BuildContext context) {
     if (response.type == "msg") {
       List t = [];
       if (splitTime) t = response.time.split(" ");
-      bool isThisUser = ChatRoomPage.uid == response.uid;
+
+      bool isThisUser = uid == response.uid;
 
       return Padding(
         padding: const EdgeInsets.all(2),
@@ -253,7 +267,7 @@ class Tile extends StatelessWidget {
                         style: const TextStyle(fontWeight: FontWeight.w300),
                       ),
                       Text(
-                        ChatRoomPage.uid,
+                        uid,
                         style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ],
@@ -275,7 +289,8 @@ class Tile extends StatelessWidget {
 // lets do multiuser shit
 
 class HistorySection extends StatefulWidget {
-  const HistorySection({Key? key});
+  final String uid;
+  const HistorySection(this.uid,{Key? key});
 
   @override
   _HistorySectionState createState() => _HistorySectionState();
@@ -316,6 +331,7 @@ class _HistorySectionState extends State<HistorySection> {
         return Tile(
           response: messageList[i],
           splitTime: false,
+          uid: widget.uid,
         );
       },
     );
